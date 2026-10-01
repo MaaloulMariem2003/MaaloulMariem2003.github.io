@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Site</title>
+  <title>Mariem Maaloul Github Document</title>
+  <!--Faire l'apparance de la page-->
   <style>
     :root {
       --bg: #f3f8f2;
@@ -66,15 +67,42 @@
     }
     .btn-green { background: var(--green); color: var(--on-green); margin-top: 1.5rem; font-size: 1.05rem; }
     .btn-green:hover { background: var(--green-hover); border-color: var(--green-hover); }
-    #theme-toggle { background: transparent; color: var(--text); }
-    #theme-toggle:hover { background: var(--green); color: var(--on-green); }
+    /* #theme-toggle { background: transparent; color: var(--text); } */
+    /* #theme-toggle:hover { background: var(--green); color: var(--on-green); } */
     button:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+
+      /*Changer le boutton par un switcheur des thèmes*/
+        .switch {
+      position: relative;
+      width: 56px;
+      height: 30px;
+      padding: 0;
+      border-radius: 999px;
+      border: 2px solid var(--green);
+      background: var(--surface);
+    }
+    .knob {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green);
+      transition: transform .25s;
+    }
+    .switch[aria-checked="true"] .knob {
+      transform: translateX(26px);
+    }
   </style>
 </head>
 <body>
   <header>
     <strong>My Site</strong>
-    <button id="theme-toggle" type="button" aria-label="Toggle dark mode">🌙 Dark mode</button>
+    <!--<button id="theme-toggle" type="button" aria-label="Toggle dark mode">🌙 Dark mode</button>-->
+    <button id="theme-toggle" class="switch" type="button" role="switch" aria-checked="false" aria-label="Dark mode">
+      <span class="knob"></span>
+    </button>
   </header>
 
   <main>
@@ -89,6 +117,7 @@
     <button class="btn-green" type="button" onclick="alert('Thanks for visiting!')">Say hello</button>
   </main>
 
+  <!-- La fonctionnalité des bouttons utilisés-->
   <script>
     const root = document.documentElement;
     const toggle = document.getElementById('theme-toggle');
